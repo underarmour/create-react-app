@@ -77,6 +77,7 @@ module.exports = {
 
 // @remove-on-eject-begin
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
+const resolveParent = relativePath => path.resolve(relativePath, '..');
 
 // config before eject: we're in ./node_modules/react-scripts/config/
 module.exports = {
@@ -100,6 +101,7 @@ module.exports = {
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
   appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+  parentSrc: resolveParent(appDirectory),
 };
 
 const ownPackageJson = require('../package.json');
